@@ -14,7 +14,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
-
+/ commit teste
 public class CadastroAluno extends JFrame {
 	private List<Aluno> lstAlunos;
 	public CadastroAluno() {
