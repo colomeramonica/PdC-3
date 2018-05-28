@@ -4,7 +4,7 @@ public class Turma{
 	Scanner teclado = new Scanner(System.in);
 	private int a, p;
 	
-	Professor professores[] = new Professor[100]; int vProf = 0;
+	Professor professores[] = new Professor[100]; int vProf = 0; // criacao dos vetores 
 	Aluno alunos[] = new Aluno[100]; int vAluno = 0;
 	
 	public Turma(){
