@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.util.List;
 import java.util.ListIterator;											
 import java.util.LinkedList;
+import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
@@ -15,13 +16,12 @@ import javax.swing.DefaultListModel;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
-public class CadastroProfessor extends JFrame {
-	public List<Professor> lstProfessores;
+public class CadastroProfessor extends JFrame{
+	private ArrayList<Professor> lstProf;
 	private boolean navegacao;
 	public CadastroProfessor() {
-		super("Teste");
+		super("Cadastro de Professores");
 		
-		lstProfessores = new LinkedList<>();
 		setLayout(new GridLayout(5,2));
 		
 		JLabel lblNomeProf = new JLabel("*Nome: ");
@@ -67,7 +67,8 @@ public class CadastroProfessor extends JFrame {
 			}
 			p.setEspecialidade(txtEspecialidade.getText());
 			
-			lstProfessores.add(p);
+			lstProf = DadosProfessores.getInstance().getListProfessor();
+			lstProf.add(p);
 			dispose();
 		});
 		
