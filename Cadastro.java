@@ -1,17 +1,9 @@
-import  javax.swing.JFrame;
-import  javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Dimension;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.util.List;
-import java.util.ListIterator;											
-import java.util.LinkedList;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
 
 public class Cadastro extends JFrame {
-	private List<Professor> lstProfessores;
-	private ListIterator<Professor> iterator;	
+	private ArrayList<Professor> lstProfessores;	
 	private boolean navegacao = false;
 	
 		public Cadastro() {
@@ -62,9 +54,8 @@ public class Cadastro extends JFrame {
 				add(lbAluno);
 			});
 			
-					btGerenciarProfessor.addActionListener((e)->{ // botão que irá listar os professores cadastrados
-				JanelaProfessor j = new JanelaProfessor();
-				
+			btGerenciarProfessor.addActionListener((e)->{ // botão que irá listar os professores cadastrados
+				JanelaProfessor j = new JanelaProfessor(this);
 			});
 			
 			setSize(d);

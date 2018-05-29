@@ -1,20 +1,6 @@
-import  javax.swing.JFrame;
-import  javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Dimension;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.util.List;
-import java.util.ListIterator;											
-import java.util.LinkedList;
-import java.util.ArrayList;
-import javax.swing.JDialog;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.DefaultListModel;
-import java.awt.Frame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
 
 public class CadastroProfessor extends JFrame{
 	private ArrayList<Professor> lstProf;
@@ -72,11 +58,6 @@ public class CadastroProfessor extends JFrame{
 			dispose();
 		});
 		
-		btOk.addActionListener((e)->{
-			/** PEGAR A LISTA E PASSAR PRA JANELA DE GERENCIAMENTO **/
-			
-		});
-		
 		btCancelar.addActionListener((e)->{ dispose(); });
 
 
@@ -84,5 +65,4 @@ public class CadastroProfessor extends JFrame{
 		setVisible(true);
 	}
 	
-	
-	}
+}

@@ -1,31 +1,26 @@
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.JButton;
-import javax.swing.DefaultListModel;
-import java.awt.BorderLayout;
-import java.util.List;
-import java.util.ArrayList;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
 
-public class JanelaProfessor extends JFrame {
+public class JanelaProfessor extends JDialog {
 	private JButton btOK;
 	private ArrayList<Professor> professores;
 	
-	public JanelaProfessor(){
-		super("Gerenciar Professores");
+	public JanelaProfessor(Frame owner) {
+		super(owner,true);
 		
 		btOK = new JButton("OK");
 
-		btOK.addActionListener((e)->{
-			professores = DadosProfessores.getInstance().getListProfessor();
-			/**while (professores.hasNext()) {
-			 * 	System.out.printfln(professores.next());
-			} **/
-		});
+		professores = DadosProfessores.getInstance().getListProfessor();
+		System.out.println(professores);
 
 		add(btOK, BorderLayout.SOUTH);
 		
-		setSize(300,500);
+		btOK.addActionListener((e)->{
+			dispose();
+		});
+		
+		setSize(300,300);
 		setVisible(true);
 	}
 	
