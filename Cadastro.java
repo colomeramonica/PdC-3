@@ -43,7 +43,7 @@ public class Cadastro extends JFrame {
 			add(btGerenciarAluno); add(btGerenciarProfessor);
 			
 			btNProfessor.addActionListener((e)->{ // botão de cadastrar novo professor aciona o 'pop-up' de cadastro
-				CadastroProfessor n = new CadastroProfessor();
+				CadastroProfessor n = new CadastroProfessor(this);
 				JLabel lbProfessor = new JLabel("Professores");
 				add(lbProfessor);
 			});

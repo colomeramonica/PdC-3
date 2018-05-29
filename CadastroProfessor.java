@@ -2,11 +2,12 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
-public class CadastroProfessor extends JFrame{
+public class CadastroProfessor extends JDialog{
 	private ArrayList<Professor> lstProf;
 	private boolean navegacao;
-	public CadastroProfessor() {
-		super("Cadastro de Professores");
+	
+	public CadastroProfessor(Frame owner) {
+		super(owner,true);
 		
 		setLayout(new GridLayout(5,2));
 		
@@ -60,9 +61,9 @@ public class CadastroProfessor extends JFrame{
 		
 		btCancelar.addActionListener((e)->{ dispose(); });
 
-
 		setSize(500,300);
 		setVisible(true);
+		
 	}
 	
 }
