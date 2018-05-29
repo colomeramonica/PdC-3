@@ -4,6 +4,11 @@ public class Turma{
 	Scanner teclado = new Scanner(System.in);
 	private int a, p;
 	
+	/criar isso como um metodo dados que tem um getInstance pois assim podemos colocar instaciar em outras janelas
+	
+	/* metodo deve ser estatico*/
+	
+	
 	Professor professores[] = new Professor[100]; int vProf = 0;
 	Aluno alunos[] = new Aluno[100]; int vAluno = 0;
 	
