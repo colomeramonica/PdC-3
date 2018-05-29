@@ -39,11 +39,11 @@ public class CadastroProfessor extends JFrame {
 		JButton btCancelar = new JButton("Cancelar");
 		JButton btOk = new JButton("OK");
 		
-		add(lblNomeProf); 		add(txtNomeProf);
-		add(lblEspecialidade);	add(txtEspecialidade);
+		add(lblNomeProf); add(txtNomeProf);
+		add(lblEspecialidade); add(txtEspecialidade);
 		add(lblRgProf); add(txtRgProf);
 		add(lblCpfProf); add(txtCpfProf);
-		add(btCancelar);	add(btOk);
+		add(btCancelar); add(btOk);
 		
 		btOk.addActionListener((e)->{
 			Professor p = new Professor();
@@ -72,9 +72,7 @@ public class CadastroProfessor extends JFrame {
 		});
 		
 		btOk.addActionListener((e)->{
-			
-			
-			
+			/** PEGAR A LISTA E PASSAR PRA JANELA DE GERENCIAMENTO **/
 			
 		});
 		

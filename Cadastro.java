@@ -56,14 +56,15 @@ public class Cadastro extends JFrame {
 				add(lbProfessor);
 			});
 			
-			btNAluno.addActionListener((e)->{ // botão de cadastrar novo aluno aciona o 'pop-up' de cadastro
+			btNAluno.addActionListener((e)->{ // botão de cadastrar novo aluno aciona a caixa de dialogo de cadastro
 				CadastroAluno a = new CadastroAluno();
 				JLabel lbAluno = new JLabel("Alunos");
 				add(lbAluno);
 			});
 			
 					btGerenciarProfessor.addActionListener((e)->{ // botão que irá listar os professores cadastrados
-				JanelaProfessor j = new JanelaProfessor(this);
+				JanelaProfessor j = new JanelaProfessor();
+				
 			});
 			
 			setSize(d);

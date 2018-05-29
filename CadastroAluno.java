@@ -38,11 +38,11 @@ public class CadastroAluno extends JFrame {
 		JButton btCancelar = new JButton("Cancelar");
 		JButton btOk = new JButton("OK");
 	
-		add(lblNomeAluno); 		add(txtNomeAluno);
+		add(lblNomeAluno); 	add(txtNomeAluno);
 		add(lblRa);	add(txtRa);
 		add(lblRgAluno); add(txtRgAluno);
 		add(lblCpfAluno); add(txtCpfAluno);
-		add(btCancelar);	add(btOk);
+		add(btCancelar); add(btOk);
 		
 		btOk.addActionListener((e)->{
 			Aluno a = new Aluno();
