@@ -4,11 +4,8 @@ import java.awt.*;
 
 public class CadastroTurma extends JFrame{
 	private ArrayList<Turma> lstTurma;	
-	private ArrayList<Professor> lstProf;	
-	private ArrayList<Aluno> lstAlunos;	
 	private boolean navegacaoProfessor; //controle se ele clicou pra add um professor
 	private boolean navegacaoAluno; //controle se ele clicou pra add um aluno
-	private JList<Professor> jlProfessores;
 	
 	Professor pr = new Professor();
 	
@@ -19,7 +16,7 @@ public class CadastroTurma extends JFrame{
 		
 		Turma t = new Turma(); //captura o Professor pr anteriormente para poder passar como parametro no construtor ou retirar o mesmo do contrutor na classe Turma
 		
-		setLayout(new GridLayout(5,2));
+		setLayout(new GridLayout(4,2));
 		
 		JLabel lbldataInicio = new JLabel("*Data Início: ");
 		JTextField txtdataInicio = new JTextField();
@@ -39,7 +36,7 @@ public class CadastroTurma extends JFrame{
 		add(btCancelar); add(btOk);
 		
 		btProf.addActionListener((e)->{
-			JanelaProfessor j = new JanelaProfessor(this); //lista os professores, capturar um pra add no objeto turma ao clicar em ok
+			JanelaProfessor j = new JanelaProfessor(this); //lista os professores, capturar um pra add no objeto turma ao clicar em ok, eu sei que se alterarmos essa tela vai dar ruim , mas é só pra poder capturar da lista a menos que de pra editar o professor aqui tambem, nesse caso fica ok
 			navegacaoProfessor = true;
 		});
 		

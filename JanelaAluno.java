@@ -1,9 +1,12 @@
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class JanelaAluno extends JDialog {
 	private JButton btOK;
+	private JButton btEditar;
 	private ArrayList<Aluno> alunos;
 	private JList<Aluno> jlAlunos;
 	
@@ -22,8 +25,16 @@ public class JanelaAluno extends JDialog {
 		for(int i=0;i<alunos.size();i++){
 			lm.add(i,alunos.get(i));
 		}
+		
+		/*jlAlunos.addListSelectionListener(new ListSelectionListener(){
+			@Override
+            public void valueChanged(ListSelectionEvent e){
+				jlAlunos.getSelectedValue().toString();						Isso daqui captura um elemento selecionado na Jlist, pode ser que funcione, mas acho que vai ter que escrver um metoodo como o toString ali 
+			}
+		});*/
 
-		add(btOK, BorderLayout.SOUTH);
+		add(btOK, BorderLayout.WEST);
+		add(btEditar, BorderLayout.EAST);
 		
 		btOK.addActionListener((e)->{
 			dispose();
