@@ -45,7 +45,7 @@ public class CadastroTurma extends JFrame{
 			navegacaoAluno = true;
 		});
 		
-		//falta capturar os alunos e o professor pra poder passar pra turma
+		//falta capturar os alunos e o professor pra poder passar pra turma (SINTO FALTA DO GET E DO POST)
 		btOk.addActionListener((e)->{
 			
 			if(navegacaoProfessor == true && navegacaoAluno == true){
