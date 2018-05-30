@@ -1,55 +1,54 @@
-import java.util.Scanner;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
 
-public class Turma{
-	Scanner teclado = new Scanner(System.in);
-	private int a, p;
+public class Turma {
+	private String dataInicio;
+	private String dataFinal;
+	private Professor prof;
+	private Aluno[] alunos;
+	private int p;
 	
-	/criar isso como um metodo dados que tem um getInstance pois assim podemos colocar instaciar em outras janelas
+	public String getDataInicio() { return dataInicio; }
+	public String getDataFinal() { return dataFinal; }
+	public Professor getProfessor() { return prof; }
 	
-	/* metodo deve ser estatico*/
+	public boolean addAluno(Aluno a){
+		if(p<alunos.length){
+			alunos[p++] = a;
+			return true;
+		}
+		return false;
+	}
 	
+	public boolean removeAluno(int idx){
+		if(idx<p){
+			alunos[idx] = alunos[--p];
+			return true;
+		}
+		return false;
+	}
 	
-	Professor professores[] = new Professor[100]; int vProf = 0;
-	Aluno alunos[] = new Aluno[100]; int vAluno = 0;
+	public Aluno getAluno(int idx){
+		if(idx<p){
+			return alunos[idx];
+		}
+		return null;
+	}
 	
-	public Turma(){
-		professores = new Professor[100];
+	public void listarAlunos() {
+		for(int i=0; i<p; i++){		
+			System.out.printf("Aluno: %d\n", i);
+			System.out.printf("Nome: %s\n", alunos[i].getNome());
+			System.out.printf("Cpf: %s\n", alunos[i].getCpf());
+			System.out.printf("Rg: %s\n", alunos[i].getRg());
+			System.out.printf("Ra: %s\n", alunos[i].getRa());
+		}
+	}
+	
+	public Turma(Professor pr) {
 		alunos = new Aluno[100];
-		p = 0; a = 0;
+		p=0;
+		prof = pr;
 	}
-	
-	public boolean addAluno (Aluno v) {
-		if (a < alunos.length) {
-				this.alunos[a++] = v;
-				return true;
-			}
-			return false;
-	}
-	
-	public boolean addProfessor (Professor a)
-		{
-			if (p < professores.length) {
-				professores[p++] = a;
-				return true;
-			}
-			return false;
-		}
-		
-		public boolean removeAluno (int idx)
-		{
-			if (idx < a) {
-				alunos[idx] = alunos[--a];
-				return true;
-			}
-			return false;
-		}
-		
-		public boolean removeProfessor (int idx)
-		{
-			if (idx < p) {
-				professores[idx] = professores[--p];
-				return true;
-			}
-			return false;
-		}
-	}
+}

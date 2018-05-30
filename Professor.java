@@ -5,4 +5,5 @@ public class Professor extends Pessoa
 	public void setEspecialidade(String n) { especialidade = n; }
 	
 	public String getEspecialidade() { return especialidade; }
+
 }

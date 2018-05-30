@@ -1,20 +1,37 @@
-import javax.swing.JDialog;
-import javax.swing.JButton;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.DefaultListModel;
-import java.awt.Frame;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
 
 public class JanelaProfessor extends JDialog {
+	private JButton btOK;
+	private ArrayList<Professor> professores;
+	private JList<Professor> jlProfessores;
 	
 	public JanelaProfessor(Frame owner) {
-		super(owner, true);
+		super(owner,true);
 		
-		DefaultListModel<Professor> model = new DefaultListModel<>();
+		btOK = new JButton("OK");
 
+		professores = Dados.getInstance().getListProfessor();
+		
+		DefaultListModel<Professor> lm = new DefaultListModel<>();
+		jlProfessores = new JList<>(lm);
+		jlProfessores.setModel(lm);
+		
+		add(jlProfessores);
+		for(int i=0;i<professores.size();i++){
+			lm.add(i,professores.get(i));
+		}
 
-		// JList<Professor> list = new JList<>(model);
+		add(btOK, BorderLayout.SOUTH);
+		
+		btOK.addActionListener((e)->{
+			dispose();
+		});
+		
 		setSize(300,300);
 		setVisible(true);
 	}
+	
 }
+

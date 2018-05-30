@@ -10,5 +10,9 @@ public class Pessoa
 	public String getCpf() { return cpf; }
 	public String getRg() { return rg;}
 	
+	@Override
+	public String toString() {
+		return "Professor(a): "+nome+"\n";
+	}
 }
 	
