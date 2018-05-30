@@ -3,17 +3,17 @@ import java.util.*;
 import java.awt.*;
 
 public class Turma {
-	private String dataIngresso;
+	private String dataInicio;
 	private String dataFinal;
 	private Professor prof;
 	private Aluno[] alunos;
 	private int p;
 	
-	public void setDataInicio(String d) { dataIngresso = d; }
+	public void setDataInicio(String d) { dataInicio = d; }
 	public void setDataFinal(String d) { dataFinal = d; }
 	public void setProfessor(Professor p) { prof = p; }
 	
-	public String getDataIngresso() { return dataIngresso; }
+	public String getDataInicio() { return dataInicio; }
 	public String getDataFinal() { return dataFinal; }
 	public Professor getProfessor() { return prof; }
 	
