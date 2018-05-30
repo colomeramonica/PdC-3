@@ -9,20 +9,16 @@ public class Cadastro extends JFrame {
 		public Cadastro() {
 			super("Cadastro de Turmas"); // MENU INICIAL
 			
-			GridLayout g = new GridLayout(5,2);
+			GridLayout g = new GridLayout(4,2);
 			setLayout(g);
 			
 			Dimension d = new Dimension(500,350);
 			
-			JLabel lbInicio = new JLabel("Data Inicio ");
-			JTextField txtInicio = new JTextField();
+			JLabel lbTurma = new JLabel("Turmas");
+			add(lbTurma);
 			
-			add(lbInicio); add(txtInicio);
-			
-			JLabel lbFim = new JLabel("Data Inicio ");
-			JTextField txtFim = new JTextField();
-			
-			add(lbFim); add(txtFim);
+			JButton btNTurma = new JButton ("Cadastrar nova turma");
+			add(btNTurma);
 			
 			JLabel lbProf = new JLabel("Professores");
 			
@@ -49,13 +45,23 @@ public class Cadastro extends JFrame {
 			});
 			
 			btNAluno.addActionListener((e)->{ // botão de cadastrar novo aluno aciona a caixa de dialogo de cadastro
-				CadastroAluno a = new CadastroAluno();
+				CadastroAluno a = new CadastroAluno(this);
 				JLabel lbAluno = new JLabel("Alunos");
 				add(lbAluno);
 			});
 			
+			btNTurma.addActionListener((e)->{ // botão de cadastrar nova turma aciona a caixa de dialogo de cadastro
+				CadastroTurma t = new CadastroTurma(this);
+				JLabel lbTurma = new JLabel("Turma");
+				add(lbTurma);
+			});
+			
 			btGerenciarProfessor.addActionListener((e)->{ // botão que irá listar os professores cadastrados
 				JanelaProfessor j = new JanelaProfessor(this);
+			});
+			
+			btGerenciarAluno.addActionListener((e)->{ // botão que irá listar os professores cadastrados
+				JanelaAluno j = new JanelaAluno(this);
 			});
 			
 			setSize(d);

@@ -3,7 +3,7 @@ import java.util.*;
 import java.awt.*;
 
 public class CadastroProfessor extends JDialog{
-	private ArrayList<Professor> lstProf;
+	private ArrayList<Professor> lstProf;	
 	private boolean navegacao;
 	
 	public CadastroProfessor(Frame owner) {
@@ -54,7 +54,7 @@ public class CadastroProfessor extends JDialog{
 			}
 			p.setEspecialidade(txtEspecialidade.getText());
 			
-			lstProf = DadosProfessores.getInstance().getListProfessor();
+			lstProf = Dados.getInstance().getListProfessor();
 			lstProf.add(p);
 			dispose();
 		});
