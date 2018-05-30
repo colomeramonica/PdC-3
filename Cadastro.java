@@ -52,7 +52,6 @@ public class Cadastro extends JFrame {
 			
 			btNTurma.addActionListener((e)->{ // botão de cadastrar nova turma aciona a caixa de dialogo de cadastro
 				CadastroTurma t = new CadastroTurma(this);
-				JLabel lbTurma = new JLabel("Turma");
 				add(lbTurma);
 			});
 			

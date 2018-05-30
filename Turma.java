@@ -13,6 +13,10 @@ public class Turma {
 	public String getDataFinal() { return dataFinal; }
 	public Professor getProfessor() { return prof; }
 	
+	public void setDataInicio(String d) {  dataInicio  = d; }
+	public void setDataFinal(String d) {  dataFinal  = d; }
+	public void setProf(Professor pr) {  prof  = pr; }
+	
 	public boolean addAluno(Aluno a){
 		if(p<alunos.length){
 			alunos[p++] = a;
@@ -46,9 +50,9 @@ public class Turma {
 		}
 	}
 	
-	public Turma(Professor pr) {
+	public Turma() {
+		// o contrutor de turma tinha como parametro um professor, então na tela antes de inicializar turma, tem que ja ter o objeto professor selecionado e passar o mesmo como parametro
 		alunos = new Aluno[100];
 		p=0;
-		prof = pr;
 	}
 }
