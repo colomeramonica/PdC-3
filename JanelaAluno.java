@@ -29,7 +29,7 @@ public class JanelaAluno extends JDialog {
 		/*jlAlunos.addListSelectionListener(new ListSelectionListener(){
 			@Override
             public void valueChanged(ListSelectionEvent e){
-				jlAlunos.getSelectedValue().toString();						Isso daqui captura um elemento selecionado na Jlist, pode ser que funcione, mas acho que vai ter que escrver um metoodo como o toString ali 
+				jlAlunos.getSelectedValue().toString();		Isso daqui captura um elemento selecionado na Jlist, pode ser que funcione, mas acho que vai ter que escrver um metoodo como o toString ali 
 			}
 		});*/
 
