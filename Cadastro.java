@@ -4,7 +4,6 @@ import java.awt.*;
 
 public class Cadastro extends JFrame {
 	private ArrayList<Professor> lstProfessores;	
-	private boolean navegacao = false;
 	
 		public Cadastro() {
 			super("Cadastro de Turmas"); // MENU INICIAL

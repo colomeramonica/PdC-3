@@ -4,13 +4,13 @@ import java.awt.*;
 
 public class CadastroTurma extends JFrame{
 	private ArrayList<Turma> lstTurma;	
+	private ArrayList<Professor> jlProf;
+	private ArrayList<Aluno> jlAlunos;
 	private boolean navegacaoProfessor; //controle se ele clicou pra add um professor
 	private boolean navegacaoAluno; //controle se ele clicou pra add um aluno
 	
 	Professor pr = new Professor();
-	
-	
-	
+
 	public CadastroTurma(Frame owner) {
 		super("Cadastro de turmas");
 		

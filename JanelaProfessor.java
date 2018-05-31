@@ -7,6 +7,7 @@ public class JanelaProfessor extends JDialog {
 	private JButton btEditar;
 	private ArrayList<Professor> professores;
 	private JList<Professor> jlProfessores;
+	private Professor E;
 	
 	public JanelaProfessor(Frame owner) {
 		super(owner,true);
@@ -26,7 +27,14 @@ public class JanelaProfessor extends JDialog {
 		}
 
 		add(btOK, BorderLayout.WEST);
-		add(btEditar, BorderLayout.EAST); //não consegui pensar em nada pra esses botões mas ficaria com esses dois 
+		add(btEditar, BorderLayout.EAST); 
+		
+		btEditar.addActionListener((e)->{
+			E = jlProfessores.getSelectedValue();
+			EditarProfessor professor = new EditarProfessor(E);
+			dispose();
+			
+		});
 		
 		btOK.addActionListener((e)->{
 			dispose();

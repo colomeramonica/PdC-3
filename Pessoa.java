@@ -12,7 +12,7 @@ public class Pessoa
 	
 	@Override
 	public String toString() {
-		return "Professor(a): "+nome+"\n";
+		return nome+"\n";
 	}
 }
 	

@@ -7,5 +7,6 @@ public class Aluno extends Pessoa
 	
 	public String getRa() { return ra; }
 	public String getDataMatricula() { return dataMatricula; }
+
 }
 
