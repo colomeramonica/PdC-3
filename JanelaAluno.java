@@ -22,8 +22,8 @@ public class JanelaAluno extends JDialog {
 		DefaultListModel<Aluno> lm = new DefaultListModel<>();
 		jlAlunos = new JList<>(lm);
 		jlAlunos.setModel(lm);
-		
 		add(jlAlunos);
+		
 		for(int i=0;i<alunos.size();i++){
 			lm.add(i,alunos.get(i));
 		}

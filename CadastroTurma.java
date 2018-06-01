@@ -41,11 +41,10 @@ public class CadastroTurma extends JFrame{
 		});
 		
 		btAlunos.addActionListener((e)->{
-			JanelaAluno j = new JanelaAluno(this); //lista os alunos, capturar um pra add no objeto turma ao clicar em ok
+			AdicionarAluno x = new AdicionarAluno(this); //lista os alunos, capturar um pra add no objeto turma ao clicar em ok
 			navegacaoAluno = true;
 		});
 		
-		//falta capturar os alunos e o professor pra poder passar pra turma (SINTO FALTA DO GET E DO POST)
 		btOk.addActionListener((e)->{
 			
 			if(navegacaoProfessor == true && navegacaoAluno == true){
