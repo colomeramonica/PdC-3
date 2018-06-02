@@ -26,8 +26,10 @@ public class JanelaAluno extends JDialog {
 		
 		for(int i=0;i<alunos.size();i++){
 			lm.add(i,alunos.get(i));
-		}
-
+		}	
+	}
+	
+	public void gerenciarAlunos() {
 		add(btOK, BorderLayout.WEST);
 		add(btEditar, BorderLayout.EAST);
 		
@@ -45,5 +47,9 @@ public class JanelaAluno extends JDialog {
 		setVisible(true);
 	}
 	
+	public void adicionarAlunos() {
+		add(btOK, BorderLayout.WEST);
+		
+	}
 }
 

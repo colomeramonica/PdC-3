@@ -41,7 +41,8 @@ public class CadastroTurma extends JFrame{
 		});
 		
 		btAlunos.addActionListener((e)->{
-			AdicionarAluno x = new AdicionarAluno(this); //lista os alunos, capturar um pra add no objeto turma ao clicar em ok
+			JanelaAluno x = new JanelaAluno(this); 
+			x.gerenciarAlunos(); //lista os alunos, capturar um pra add no objeto turma ao clicar em ok
 			navegacaoAluno = true;
 		});
 		
