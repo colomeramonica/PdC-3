@@ -5,19 +5,19 @@ import java.awt.*;
 public class CadastroTurma extends JDialog{
 
     private JFrame jFrame;
-    private JPanel panel1;
-    private JPanel panel2;
-    private JPanel panel3;
-    private JPanel panel4;
-    private JPanel panelButo;
-    private JButton butao;
-    private JButton butaoAdd;
-    private JButton butaoRem;
-    private JTextField textFieldNome;
-    private JTextField textFieldSobrenome;
+    private JPanel panelInicio;
+    private JPanel panelFim;
+    private JPanel panelProf;
+    private JPanel panelList;
+    private JPanel panelBotoes;
+    private JButton btnProf;
+    private JButton add;
+    private JButton rem;
+    private JTextField txtDataInicio;
+    private JTextField txtDataFim;
     private JTextField txtProfessor;
     private JList lstAdicionados;
-    private JList teste;
+    private JList listaAlunos;
     
 
     public CadastroTurma(Frame owner) {
@@ -30,66 +30,66 @@ public class CadastroTurma extends JDialog{
 		* que contém respectivamente o rótulo "Nome:" e o campo para edição. 
 		*/
 		 
-		panel1 = new JPanel();
-		panel1.setLayout(new GridLayout(1, 0));
+		panelInicio = new JPanel();
+		panelInicio.setLayout(new GridLayout(1, 0));
 		
-		panel1 = new JPanel();
-		panel1.setLayout(new GridLayout(1, 0));
+		panelInicio = new JPanel();
+		panelInicio.setLayout(new GridLayout(1, 0));
 		
-		panelButo = new JPanel();
-		panelButo.setLayout(new GridLayout(2, 1));
+		panelBotoes = new JPanel();
+		panelBotoes.setLayout(new GridLayout(2, 1));
 
 		/*
 		* Outro JPainel para adicionar os componentes JLabel e JTextField 
 		* que contém respectivamente o rótulo "Sobrenome:" e o campo para edição. 
 		*/
-		panel2 = new JPanel();
-		panel2.setLayout(new GridLayout(1, 0));
+		panelFim = new JPanel();
+		panelFim.setLayout(new GridLayout(1, 0));
 		
 		
-		panel3 = new JPanel();
-		panel3.setLayout(new GridLayout(1,3));
+		panelProf = new JPanel();
+		panelProf.setLayout(new GridLayout(1,3));
 		
-		panel4 = new JPanel();
-		panel4.setLayout(new GridLayout(1,3));
+		panelList = new JPanel();
+		panelList.setLayout(new GridLayout(1,3));
 
-		textFieldNome = new JTextField(15);
-		textFieldSobrenome = new JTextField(15);
+		txtDataInicio = new JTextField(15);
+		txtDataFim = new JTextField(15);
 		txtProfessor = new JTextField();
-		butao = new JButton();
+		btnProf = new JButton();
 		
 		lstAdicionados = new JList();
-		teste = new JList();
-		butaoAdd = new JButton();
-		butaoRem = new JButton();
+		listaAlunos = new JList();
+		add = new JButton();
+		rem = new JButton();
 		
 
 		//Adição dos componentes ao JPanel
-		panel1.add(new JLabel("Data de Inicio: "));
-		panel1.add(textFieldNome);
+		panelInicio.add(new JLabel("Data de Inicio: "));
+		panelInicio.add(txtDataInicio);
 
 		//Adição dos componentes ao JPanel
-		panel2.add(new JLabel("Data Final: "));
-		panel2.add(textFieldSobrenome);
+		panelFim.add(new JLabel("Data Final: "));
+		panelFim.add(txtDataFim);
 		
-		panel3.add(new JLabel("Selecionar professor:"));
-		panel3.add(txtProfessor);
-		panel3.add(butao);
+		panelProf.add(new JLabel("Selecionar professor:"));
+		panelProf.add(txtProfessor);
+		panelProf.add(btnProf);
 		
-		panel4.add(lstAdicionados);
-		panel4.add(panelButo);
-		panel4.add(teste);
+		panelList.add(lstAdicionados);
+		panelList.add(panelBotoes);
+		panelList.add(listaAlunos);
 		
-		panelButo.add(butaoAdd);
-		panelButo.add(butaoRem);
+		panelBotoes.add(add);
+		panelBotoes.add(rem);
 		
 		
 
 		//Adição dos componentes JPanel ao JFrame
-		jFrame.add(panel1);
-		jFrame.add(panel2);
-		jFrame.add(panel3);
-		jFrame.add(panel4);
+		jFrame.add(panelInicio);
+		jFrame.add(panelFim);
+		jFrame.add(panelProf);
+		jFrame.add(panelList);
 		
 		jFrame.setSize(500,300);
 		jFrame.setVisible(true);
