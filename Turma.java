@@ -6,7 +6,7 @@ public class Turma {
 	private String dataInicio;
 	private String dataFinal;
 	private Professor prof;
-	private ArrayList<Aluno> alunos;
+	public ArrayList<Aluno> alunos;
 	
 	public String getDataInicio() { return dataInicio; }
 	public String getDataFinal() { return dataFinal; }

@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.*;
+import java.util.List;
 import java.awt.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -10,6 +11,7 @@ public class JanelaAluno extends JDialog {
 	private ArrayList<Aluno> alunos;
 	private JList<Aluno> jlAlunos;
 	private Aluno E;
+	private List<Aluno> A;
 	
 	public JanelaAluno(Frame owner) {
 		super(owner,true);
@@ -43,13 +45,20 @@ public class JanelaAluno extends JDialog {
 			dispose();
 		});
 		
-		setSize(300,300);
-		setVisible(true);
 	}
 	
 	public void adicionarAlunos() {
 		add(btOK, BorderLayout.WEST);
-		
+		A = jlAlunos.getSelectedValuesList();
+		btOK.addActionListener((e)->{
+			Turma t = new Turma();
+			for(int i = 0; i < A.size(); i++) {
+				t.alunos.add(i,A.get(i));
+			}
+			dispose();
+		});
+		setSize(300,300);
+		setVisible(true);
 	}
 }
 

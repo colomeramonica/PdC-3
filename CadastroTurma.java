@@ -2,76 +2,96 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
-public class CadastroTurma extends JFrame{
-	private ArrayList<Turma> lstTurma;	
-	private ArrayList<Professor> jlProf;
-	private ArrayList<Aluno> jlAlunos;
-	private boolean navegacaoProfessor; //controle se ele clicou pra add um professor
-	private boolean navegacaoAluno; //controle se ele clicou pra add um aluno
-	
-	Professor pr = new Professor();
+public class CadastroTurma extends JDialog{
 
-	public CadastroTurma(Frame owner) {
-		super("Cadastro de turmas");
-		
-		Turma t = new Turma(); //captura o Professor pr anteriormente para poder passar como parametro no construtor ou retirar o mesmo do contrutor na classe Turma
-		
-		setLayout(new GridLayout(4,2));
-		
-		JLabel lbldataInicio = new JLabel("*Data Início: ");
-		JTextField txtdataInicio = new JTextField();
-		
-		JLabel lbldataFim = new JLabel("*Data Fim: ");
-		JTextField txtdataFim = new JTextField();
-		
-		JButton btProf = new JButton("Adicionar professor responsavel");
-		JButton btAlunos = new JButton("Adicionar alunos");
-		
-		JButton btCancelar = new JButton("Cancelar");
-		JButton btOk = new JButton("OK");
-		
-		add(lbldataInicio); add(txtdataInicio);
-		add(lbldataFim); add(txtdataFim);
-		add(btProf); add(btAlunos);
-		add(btCancelar); add(btOk);
-		
-		btProf.addActionListener((e)->{
-			JanelaProfessor j = new JanelaProfessor(this); //lista os professores, capturar um pra add no objeto turma ao clicar em ok, eu sei que se alterarmos essa tela vai dar ruim , mas é só pra poder capturar da lista a menos que de pra editar o professor aqui tambem, nesse caso fica ok
-			navegacaoProfessor = true;
-		});
-		
-		btAlunos.addActionListener((e)->{
-			JanelaAluno x = new JanelaAluno(this); 
-			x.gerenciarAlunos(); //lista os alunos, capturar um pra add no objeto turma ao clicar em ok
-			navegacaoAluno = true;
-		});
-		
-		btOk.addActionListener((e)->{
-			
-			if(navegacaoProfessor == true && navegacaoAluno == true){
-				if(txtdataInicio.getText().equals("")){
-					JOptionPane.showMessageDialog(null,"Voce deve informar a data inicial!");
-				}
-				t.setDataInicio(txtdataInicio.getText());
-		
-				if(txtdataFim.getText().equals("")){
-					JOptionPane.showMessageDialog(null,"Voce deve informar a data final!");
-				}
-				t.setDataFinal(txtdataFim.getText());
-				
-				lstTurma = Dados.getInstance().getListTurmas();
-				lstTurma.add(t);
-				dispose();
-			}else{
-				JOptionPane.showMessageDialog(null,"Voce deve selecionar aluno(s) e/ou um professor");
-			}	
-		});
-		
-		btCancelar.addActionListener((e)->{ dispose(); });
+    private JFrame jFrame;
+    private JPanel panel1;
+    private JPanel panel2;
+    private JPanel panel3;
+    private JPanel panel4;
+    private JPanel panelButo;
+    private JButton butao;
+    private JButton butaoAdd;
+    private JButton butaoRem;
+    private JTextField textFieldNome;
+    private JTextField textFieldSobrenome;
+    private JTextField txtProfessor;
+    private JList lstAdicionados;
+    private JList teste;
+    
 
-		setSize(500,300);
-		setVisible(true);
-		
-	}
+    public CadastroTurma(Frame owner) {
+		super(owner,true);
+		jFrame = new JFrame("Gerenciar turmas");
+		jFrame.setLayout(new GridLayout(5,5));
 	
+		/*
+		* Um JPainel para adicionar os componentes JLabel e JTextField 
+		* que contém respectivamente o rótulo "Nome:" e o campo para edição. 
+		*/
+		 
+		panel1 = new JPanel();
+		panel1.setLayout(new GridLayout(1, 0));
+		
+		panel1 = new JPanel();
+		panel1.setLayout(new GridLayout(1, 0));
+		
+		panelButo = new JPanel();
+		panelButo.setLayout(new GridLayout(2, 1));
+
+		/*
+		* Outro JPainel para adicionar os componentes JLabel e JTextField 
+		* que contém respectivamente o rótulo "Sobrenome:" e o campo para edição. 
+		*/
+		panel2 = new JPanel();
+		panel2.setLayout(new GridLayout(1, 0));
+		
+		
+		panel3 = new JPanel();
+		panel3.setLayout(new GridLayout(1,3));
+		
+		panel4 = new JPanel();
+		panel4.setLayout(new GridLayout(1,3));
+
+		textFieldNome = new JTextField(15);
+		textFieldSobrenome = new JTextField(15);
+		txtProfessor = new JTextField();
+		butao = new JButton();
+		
+		lstAdicionados = new JList();
+		teste = new JList();
+		butaoAdd = new JButton();
+		butaoRem = new JButton();
+		
+
+		//Adição dos componentes ao JPanel
+		panel1.add(new JLabel("Data de Inicio: "));
+		panel1.add(textFieldNome);
+
+		//Adição dos componentes ao JPanel
+		panel2.add(new JLabel("Data Final: "));
+		panel2.add(textFieldSobrenome);
+		
+		panel3.add(new JLabel("Selecionar professor:"));
+		panel3.add(txtProfessor);
+		panel3.add(butao);
+		
+		panel4.add(lstAdicionados);
+		panel4.add(panelButo);
+		panel4.add(teste);
+		
+		panelButo.add(butaoAdd);
+		panelButo.add(butaoRem);
+		
+		
+
+		//Adição dos componentes JPanel ao JFrame
+		jFrame.add(panel1);
+		jFrame.add(panel2);
+		jFrame.add(panel3);
+		jFrame.add(panel4);
+		
+		jFrame.setSize(500,300);
+		jFrame.setVisible(true);
+    }
 }
