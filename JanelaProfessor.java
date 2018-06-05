@@ -44,5 +44,11 @@ public class JanelaProfessor extends JDialog {
 		setVisible(true);
 	}
 	
+	public Professor getSelected() {
+		E = jlProfessores.getSelectedValue();
+		return E;
+	}
+			
+	
 }
 
