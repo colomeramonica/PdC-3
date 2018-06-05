@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
+<<<<<<< HEAD
 public class CadastroTurma extends JDialog{
 
     private JFrame jFrame;
@@ -35,6 +36,7 @@ public class CadastroTurma extends JDialog{
 		
 		panelInicio = new JPanel();
 		panelInicio.setLayout(new GridLayout(1, 0));
+
 		
 		panelBotoes = new JPanel();
 		panelBotoes.setLayout(new GridLayout(2, 1));
@@ -62,7 +64,7 @@ public class CadastroTurma extends JDialog{
 		listaAlunos = new JList();
 		add = new JButton();
 		rem = new JButton();
-		
+
 
 		//Adição dos componentes ao JPanel
 		panelInicio.add(new JLabel("Data de Inicio: "));

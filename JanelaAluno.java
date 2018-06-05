@@ -11,7 +11,10 @@ public class JanelaAluno extends JDialog {
 	private ArrayList<Aluno> alunos;
 	private JList<Aluno> jlAlunos;
 	private Aluno E;
+<<<<<<< HEAD
 	private List<Aluno> A;
+=======
+>>>>>>> 8ccd40ca5b2aaed39fe09d9baf34e81396551b28
 	
 	public JanelaAluno(Frame owner) {
 		super(owner,true);
@@ -28,10 +31,15 @@ public class JanelaAluno extends JDialog {
 		
 		for(int i=0;i<alunos.size();i++){
 			lm.add(i,alunos.get(i));
+<<<<<<< HEAD
 		}	
 	}
 	
 	public void gerenciarAlunos() {
+=======
+		}
+
+>>>>>>> 8ccd40ca5b2aaed39fe09d9baf34e81396551b28
 		add(btOK, BorderLayout.WEST);
 		add(btEditar, BorderLayout.EAST);
 		
