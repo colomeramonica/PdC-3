@@ -100,14 +100,14 @@ public class CadastroTurma extends JDialog{
 		
 		btnProf.addActionListener((e)->{
 			JanelaProfessor j = new JanelaProfessor(null);
+			txtProfessor.setText(j.getSelected().getNome());
+			txtProfessor.setVisible(true);
+			txtProfessor.setEditable(false);
+			btnProf.setEnabled(false);
 		});
 		
 		jFrame.setSize(500,300);
 		jFrame.setVisible(true);
     }
-    
-    public void selecionarProfessor(Professor p) {
-			txtProfessor.setText(p.getNome());
-			txtProfessor.setVisible(true);
-		}
+
 }
