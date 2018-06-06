@@ -19,8 +19,10 @@ public class CadastroTurma extends JDialog{
     private JTextField txtDataInicio;
     private JTextField txtDataFim;
     private JTextField txtProfessor;
-    private JList lstAdicionados;
-    private JList listaAlunos;
+    private JList<Aluno> lstAdicionados;
+    private JList<Aluno> listaAlunos;
+    private ArrayList<Aluno> alunos;
+    private ArrayList<Turma> turma;
     
 
     public CadastroTurma(Frame owner) {
@@ -63,7 +65,19 @@ public class CadastroTurma extends JDialog{
 		btnProf = new JButton("Adicionar professor");
 		
 		lstAdicionados = new JList();
-		listaAlunos = new JList();
+		
+		/** Exibição dos alunos cadastrados **/
+		alunos = Dados.getInstance().getListAlunos();
+		
+		DefaultListModel<Aluno> lm = new DefaultListModel<>();
+		listaAlunos = new JList<>(lm);
+		listaAlunos.setModel(lm);
+
+		for(int i=0;i<alunos.size();i++){
+			lm.add(i,alunos.get(i));
+		} 
+		/** Fim da exibição dos alunos **/
+		
 		txtProfessor = new JTextField();
 		btEsq = new JButton(">");
 		btDir = new JButton("<");
@@ -83,9 +97,9 @@ public class CadastroTurma extends JDialog{
 		panelProf.add(btnProf);
 		txtProfessor.setVisible(false);
 		
-		panelList.add(lstAdicionados);
-		panelList.add(panelBotoes);
 		panelList.add(listaAlunos);
+		panelList.add(panelBotoes);
+		panelList.add(lstAdicionados);
 		
 		panelBotoes.add(btEsq);
 		panelBotoes.add(btDir);
@@ -104,6 +118,12 @@ public class CadastroTurma extends JDialog{
 			txtProfessor.setVisible(true);
 			txtProfessor.setEditable(false);
 			btnProf.setEnabled(false);
+		});
+		
+		btOk.addActionListener((e)->{
+			Turma turma = new Turma();
+			turma.addAluno(lstAdicionados);
+			dispose();
 		});
 		
 		jFrame.setSize(500,300);
