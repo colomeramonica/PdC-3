@@ -16,4 +16,10 @@ public class Turma {
 	public void setDataFinal(String d) {  dataFinal  = d; }
 	public void setProf(Professor pr) {  prof  = pr; }
 
+	public void addAluno(ArrayList <Aluno> listA) {
+		for(int i = 0; i < listA.size(); i++) {
+			alunos.add(i,listA.get(i));
+		}
+	}
+		
 }

@@ -58,8 +58,8 @@ public class Cadastro extends JFrame {
 				JanelaProfessor j = new JanelaProfessor(this);
 			});
 			
-			btGerenciarAluno.addActionListener((e)->{ // botão que irá listar os professores cadastrados
-				JanelaAluno j = new JanelaAluno(this);
+			btGerenciarAluno.addActionListener((e)->{ // botão que irá listar os alunos cadastrados
+				JanelaAluno aln = new JanelaAluno(this);
 			});
 			
 			setSize(d);

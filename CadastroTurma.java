@@ -117,6 +117,7 @@ public class CadastroTurma extends JDialog{
 			txtProfessor.setText(j.getSelected().getNome());
 			txtProfessor.setVisible(true);
 			txtProfessor.setEditable(false);
+<<<<<<< HEAD
 			btnProf.setEnabled(false);
 		});
 		
@@ -124,6 +125,8 @@ public class CadastroTurma extends JDialog{
 			Turma turma = new Turma();
 			turma.addAluno(lstAdicionados);
 			dispose();
+=======
+>>>>>>> 0f3ea0655acfc54763b423b2d0f4259a9aa64943
 		});
 		
 		jFrame.setSize(500,300);
