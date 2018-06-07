@@ -3,65 +3,48 @@
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
+import java.util.List;
 
 public class CadastroTurma extends JDialog{
-
-    private JFrame jFrame;
-    private JPanel panelInicio;
-    private JPanel panelFim;
-    private JPanel panelProf;
-    private JPanel panelList;
-    private JPanel panelBotoes;
-    private JPanel panelGerenciar;
-    private JButton btnProf;
-    private JButton btEsq;
-    private JButton btDir;
-    private JButton btOk;
-    private JButton btCancela;
-    private JTextField txtDataInicio;
-    private JTextField txtDataFim;
-    private JTextField txtProfessor;
-    private JList<Aluno> lstAdicionados;
+    private JList<Aluno> listaAdicionados;
     private JList<Aluno> listaAlunos;
     private ArrayList<Aluno> alunos;
     private ArrayList<Turma> turma;
-    
-
+    private List <Aluno> lstAux;
+    private int size;
+ 
     public CadastroTurma(Frame owner) {
 		super(owner,true);
-		jFrame = new JFrame("Gerenciar turmas");
+		JFrame jFrame = new JFrame("Gerenciar turmas");
 		jFrame.setLayout(new GridLayout(5,5)); // setando o layout inicial da tela 
 
-		panelInicio = new JPanel();
-		panelInicio.setLayout(new GridLayout(1, 0)); // Panel para a adição dos JLabel e JTextField referentes a Data Inicial
+		/** Declaração dos panels que serão usados **/
+		JPanel panelInicio = new JPanel(); // Panel para a adição dos JLabel e JTextField referentes a Data Inicial
+		JPanel panelFim = new JPanel(); // Panel para a adição dos JLabel e JTextField referentes a Data Final
+		JPanel panelBotoes = new JPanel(); // Panel para a adição dos JButton referentes aos botões '<' e '>'
+		JPanel panelProf = new JPanel(); // Panel referente ao JButton de escolha do professor e o JTextField que exibe o nome do mesmo
+		JPanel panelList = new JPanel(); // Panel para a adição do JList que irá exibir os alunos cadastrados
+		JPanel panelGerenciar = new JPanel();
 		
-		panelInicio = new JPanel();
-		panelInicio.setLayout(new GridLayout(1, 0));
-		
-		// Panel para a adição dos JButton referentes aos botões '<' e '>'
-		panelBotoes = new JPanel();
+		/** Configuração dos layouts de cada panel **/
+		panelInicio.setLayout(new GridLayout(1, 0)); 
 		panelBotoes.setLayout(new GridLayout(2, 1));
-
-		// Panel para a adição dos JLabel e JTextField referentes a Data Final
-		panelFim = new JPanel();
 		panelFim.setLayout(new GridLayout(1, 0));
-		
-		// Panel referente ao JButton de escolha do professor e o JTextField que exibe o nome do mesmo
-		panelProf = new JPanel();
 		panelProf.setLayout(new GridLayout(1,3));
-		
-		// Panel para a adição do JList que irá exibir os alunos cadastrados
-		panelList = new JPanel();
 		panelList.setLayout(new GridLayout(1,3));
-		
-		panelGerenciar = new JPanel();
 		panelGerenciar.setLayout(new GridLayout(1,0));
 
-		txtDataInicio = new JTextField(15);
-		txtDataFim = new JTextField(15);
-		btnProf = new JButton("Adicionar professor");
+		/** Declaração dos campos de texto **/
+		JTextField txtDataInicio = new JTextField();
+		JTextField txtDataFim = new JTextField();
+		JTextField txtProfessor = new JTextField();
 		
-		lstAdicionados = new JList();
+		/** Declaração dos botões **/
+		JButton btEsq = new JButton(">");
+		JButton btDir = new JButton("<");
+		JButton btOk = new JButton("Ok");
+		JButton btCancela = new JButton("Cancelar");
+		JButton btnProf = new JButton("Adicionar professor");
 		
 		/** Exibição dos alunos cadastrados **/
 		alunos = Dados.getInstance().getListAlunos();
@@ -74,12 +57,6 @@ public class CadastroTurma extends JDialog{
 			lm.add(i,alunos.get(i));
 		} 
 		/** Fim da exibição dos alunos **/
-		
-		txtProfessor = new JTextField();
-		btEsq = new JButton(">");
-		btDir = new JButton("<");
-		btOk = new JButton("Ok");
-		btCancela = new JButton("Cancelar");
 		
 		//Adição dos componentes ao JPanel
 		panelInicio.add(new JLabel("Data de Inicio: "));
@@ -96,7 +73,7 @@ public class CadastroTurma extends JDialog{
 		
 		panelList.add(listaAlunos);
 		panelList.add(panelBotoes);
-		panelList.add(lstAdicionados);
+		panelList.add(listaAdicionados);
 		
 		panelBotoes.add(btEsq);
 		panelBotoes.add(btDir);
@@ -114,16 +91,28 @@ public class CadastroTurma extends JDialog{
 		 * ao selecionar um, o nome deste é exibido na tela de Turma e o botão é desabilitado para impedir a 
 		 * adição de mais professores em uma mesma turma **/
 			JanelaProfessor j = new JanelaProfessor(null);
-			txtProfessor.setText(j.getSelected().getNome());
-			txtProfessor.setVisible(true);
-			txtProfessor.setEditable(false);
-			btnProf.setEnabled(false);
+			try {
+				txtProfessor.setText(j.getSelected().getNome());
+				txtProfessor.setVisible(true);
+				txtProfessor.setEditable(false);
+				btnProf.setEnabled(false);
+			} catch (Exception ex) { // caso não haja professor selecionado, lança uma exceção e exibe um aviso na tela
+				JOptionPane.showMessageDialog(null,"Voce deve selecionar um professor!");
+			}
 		});
 		
-		btOk.addActionListener((e)->{
 		/** Recebe os alunos selecionados e os adiciona na turma recém criada **/
+		btOk.addActionListener((e)->{
 			Turma turma = new Turma();
-			turma.addAluno(lstAdicionados);
+			size = listaAdicionados.getModel().getSize();
+			lstAux = new ArrayList(listaAdicionados.getModel().getSize());
+			for (int i = 0; i < size; i++) {
+				listaAdicionados.add(lstAux);
+			}
+			dispose();
+		}); 
+		
+		btCancela.addActionListener((e)->{
 			dispose();
 		});
 		
