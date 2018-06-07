@@ -30,30 +30,27 @@ public class CadastroTurma extends JDialog{
     public CadastroTurma(Frame owner) {
 		super(owner,true);
 		jFrame = new JFrame("Gerenciar turmas");
-		jFrame.setLayout(new GridLayout(5,5));
-	
-		/*
-		* Um JPainel para adicionar os componentes JLabel e JTextField 
-		*/
-		 
+		jFrame.setLayout(new GridLayout(5,5)); // setando o layout inicial da tela 
+
 		panelInicio = new JPanel();
-		panelInicio.setLayout(new GridLayout(1, 0));
+		panelInicio.setLayout(new GridLayout(1, 0)); // Panel para a adição dos JLabel e JTextField referentes a Data Inicial
 		
 		panelInicio = new JPanel();
 		panelInicio.setLayout(new GridLayout(1, 0));
 		
+		// Panel para a adição dos JButton referentes aos botões '<' e '>'
 		panelBotoes = new JPanel();
 		panelBotoes.setLayout(new GridLayout(2, 1));
 
-		/*
-		* Outro JPainel para adicionar os componentes JLabel e JTextField 
-		*/
+		// Panel para a adição dos JLabel e JTextField referentes a Data Final
 		panelFim = new JPanel();
 		panelFim.setLayout(new GridLayout(1, 0));
 		
+		// Panel referente ao JButton de escolha do professor e o JTextField que exibe o nome do mesmo
 		panelProf = new JPanel();
 		panelProf.setLayout(new GridLayout(1,3));
 		
+		// Panel para a adição do JList que irá exibir os alunos cadastrados
 		panelList = new JPanel();
 		panelList.setLayout(new GridLayout(1,3));
 		
@@ -113,6 +110,9 @@ public class CadastroTurma extends JDialog{
 		jFrame.add(panelList); jFrame.add(panelGerenciar);
 		
 		btnProf.addActionListener((e)->{
+		/** No clique do botão de 'Adicionar Professor' é aberta a tela de listagem de professores e,
+		 * ao selecionar um, o nome deste é exibido na tela de Turma e o botão é desabilitado para impedir a 
+		 * adição de mais professores em uma mesma turma **/
 			JanelaProfessor j = new JanelaProfessor(null);
 			txtProfessor.setText(j.getSelected().getNome());
 			txtProfessor.setVisible(true);
@@ -121,6 +121,7 @@ public class CadastroTurma extends JDialog{
 		});
 		
 		btOk.addActionListener((e)->{
+		/** Recebe os alunos selecionados e os adiciona na turma recém criada **/
 			Turma turma = new Turma();
 			turma.addAluno(lstAdicionados);
 			dispose();
