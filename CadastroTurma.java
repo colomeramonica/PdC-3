@@ -104,11 +104,7 @@ public class CadastroTurma extends JDialog{
 		/** Recebe os alunos selecionados e os adiciona na turma recém criada **/
 		btOk.addActionListener((e)->{
 			Turma turma = new Turma();
-			size = listaAdicionados.getModel().getSize();
-			lstAux = new ArrayList(listaAdicionados.getModel().getSize());
-			for (int i = 0; i < size; i++) {
-				listaAdicionados.add(lstAux);
-			}
+		//@TODO jogar os alunos selecionados (que teoricamente estarão nessa nova lista) e adicioná-los na classe recém instanciada
 			dispose();
 		}); 
 		
