@@ -1,3 +1,5 @@
+/* Tela que permite a edição dos alunos já cadastrados */
+
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -7,7 +9,7 @@ public class EditarAluno extends JFrame{
 	private int index;
 	
 	public EditarAluno(Aluno edicao) {
-		
+		// Refaz a tela de cadastro de aluno, porém dessa vez os campos são atualizados
 		setLayout(new GridLayout(6,2));
 		
 		JLabel lblNomeAln = new JLabel("*Nome: ");
@@ -40,9 +42,9 @@ public class EditarAluno extends JFrame{
 			lstAluno = Dados.getInstance().getListAlunos();
 			index = lstAluno.indexOf(edicao);
 			a.setNome(txtNomeAln.getText());
-			a.setDataMatricula(txtdataMatricula.getText());
+			a.setDataMatricula(txtdataMatricula.getText()); // recebe o texto alterado dos campos
 			if (index > -1) {
-				lstAluno.set(index, a);
+				lstAluno.set(index, a); // atualiza os valores na posição correta da lista
 			}
 			dispose();
 		});

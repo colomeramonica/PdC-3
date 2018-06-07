@@ -1,8 +1,9 @@
+/* Tela de listagem dos alunos cadastrados */
+
 import javax.swing.*;
 import java.util.*;
+import java.util.List;
 import java.awt.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 public class JanelaAluno extends JDialog {
 	private JButton btOK;
@@ -10,6 +11,7 @@ public class JanelaAluno extends JDialog {
 	private ArrayList<Aluno> alunos;
 	private JList<Aluno> jlAlunos;
 	private Aluno E;
+	private List<Aluno> A;
 	
 	public JanelaAluno(Frame owner) {
 		super(owner,true);
@@ -26,8 +28,8 @@ public class JanelaAluno extends JDialog {
 		
 		for(int i=0;i<alunos.size();i++){
 			lm.add(i,alunos.get(i));
-		}
-
+		}	
+		
 		add(btOK, BorderLayout.WEST);
 		add(btEditar, BorderLayout.EAST);
 		
@@ -44,6 +46,5 @@ public class JanelaAluno extends JDialog {
 		setSize(300,300);
 		setVisible(true);
 	}
-	
 }
 

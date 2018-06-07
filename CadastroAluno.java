@@ -1,3 +1,5 @@
+/* Tela de cadastro de novos alunos */
+
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -6,7 +8,7 @@ public class CadastroAluno extends JDialog{
 	private ArrayList<Aluno> lstAln;	
 	private boolean navegacao;
 	
-	public CadastroAluno(Frame owner) {
+	public CadastroAluno(Frame owner) { // tornando a janela um modal dependende do seu "pai" (no caso, a tela de Cadastro)
 		super(owner,true);
 		
 		setLayout(new GridLayout(6,2));
@@ -38,7 +40,7 @@ public class CadastroAluno extends JDialog{
 		
 		btOk.addActionListener((e)->{
 			Aluno a = new Aluno();
-			if(txtNomeAln.getText().equals("")){
+			if(txtNomeAln.getText().equals("")){ // verifica se o campo está vazio e, caso sim, retorna um aviso
 				JOptionPane.showMessageDialog(null,"Voce deve informar o nome!");
 			}
 			a.setNome(txtNomeAln.getText());
@@ -60,12 +62,12 @@ public class CadastroAluno extends JDialog{
 			
 			a.setDataMatricula(txtdataMatricula.getText());
 			
-			lstAln = Dados.getInstance().getListAlunos();
+			lstAln = Dados.getInstance().getListAlunos(); // instancia uma nova lista de alunos direto da classe Dados, um Singleton
 			lstAln.add(a);
 			dispose();
 		});
 		
-		btCancelar.addActionListener((e)->{ dispose(); });
+		btCancelar.addActionListener((e)->{ dispose(); }); // fecha o modal no clique do botão 
 
 		setSize(500,300);
 		setVisible(true);

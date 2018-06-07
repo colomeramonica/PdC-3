@@ -1,3 +1,5 @@
+/* Classe Turma */
+
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -6,7 +8,7 @@ public class Turma {
 	private String dataInicio;
 	private String dataFinal;
 	private Professor prof;
-	private ArrayList<Aluno> alunos;
+	public ArrayList<Aluno> alunos;
 	
 	public String getDataInicio() { return dataInicio; }
 	public String getDataFinal() { return dataFinal; }
@@ -16,4 +18,11 @@ public class Turma {
 	public void setDataFinal(String d) {  dataFinal  = d; }
 	public void setProf(Professor pr) {  prof  = pr; }
 
+	/** Função responsável pela adição de novos elementos a turma **/
+	public void addAluno(ArrayList <Aluno> listA) {
+		for(int i = 0; i < listA.size(); i++) {
+			alunos.add(i,listA.get(i));
+		}
+	}
+		
 }
