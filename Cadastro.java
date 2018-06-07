@@ -1,3 +1,6 @@
+/* Arquivo responsável pela janela inicial do programa. Contém os botões de adição de alunos, professores e o gerenciamento dos mesmos,
+ * bem como a possibilidade de criação de turmas. */
+ 
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;

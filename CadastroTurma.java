@@ -1,3 +1,5 @@
+/* Tela de cadastro de novas turmas */
+
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -32,7 +34,6 @@ public class CadastroTurma extends JDialog{
 	
 		/*
 		* Um JPainel para adicionar os componentes JLabel e JTextField 
-		* que contém respectivamente o rótulo "Nome:" e o campo para edição. 
 		*/
 		 
 		panelInicio = new JPanel();
@@ -46,7 +47,6 @@ public class CadastroTurma extends JDialog{
 
 		/*
 		* Outro JPainel para adicionar os componentes JLabel e JTextField 
-		* que contém respectivamente o rótulo "Sobrenome:" e o campo para edição. 
 		*/
 		panelFim = new JPanel();
 		panelFim.setLayout(new GridLayout(1, 0));
@@ -117,7 +117,6 @@ public class CadastroTurma extends JDialog{
 			txtProfessor.setText(j.getSelected().getNome());
 			txtProfessor.setVisible(true);
 			txtProfessor.setEditable(false);
-<<<<<<< HEAD
 			btnProf.setEnabled(false);
 		});
 		
@@ -125,8 +124,6 @@ public class CadastroTurma extends JDialog{
 			Turma turma = new Turma();
 			turma.addAluno(lstAdicionados);
 			dispose();
-=======
->>>>>>> 0f3ea0655acfc54763b423b2d0f4259a9aa64943
 		});
 		
 		jFrame.setSize(500,300);

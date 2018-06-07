@@ -1,3 +1,5 @@
+/* Classe Pessoa */
+
 public class Pessoa
 {
 	private String nome, cpf, rg;
@@ -10,7 +12,7 @@ public class Pessoa
 	public String getCpf() { return cpf; }
 	public String getRg() { return rg;}
 	
-	@Override
+	@Override // sobrescrita do método toString para permitir a impressão dos nomes dos elementos do programa na listagem
 	public String toString() {
 		return nome+"\n";
 	}

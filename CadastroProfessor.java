@@ -1,3 +1,5 @@
+/* Tela de cadastro de novos professores */
+
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;

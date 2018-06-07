@@ -1,3 +1,5 @@
+/* Arquivo Singleton que instancia as lista dos elementos utilizados várias vezes durante o programa */
+
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
