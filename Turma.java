@@ -9,6 +9,7 @@ public class Turma {
 	private String dataFinal;
 	private Professor prof;
 	public ArrayList<Aluno> alunos;
+	private int p;
 	
 	public String getDataInicio() { return dataInicio; }
 	public String getDataFinal() { return dataFinal; }
@@ -16,13 +17,17 @@ public class Turma {
 	
 	public void setDataInicio(String d) {  dataInicio  = d; }
 	public void setDataFinal(String d) {  dataFinal  = d; }
-	public void setProf(Professor pr) {  prof  = pr; }
+	public void setProfessor(Professor pr) {  prof  = pr; }
 
-	/** Função responsável pela adição de novos elementos a turma **/
-	public void addAluno(ArrayList <Aluno> listA) {
-		for(int i = 0; i < listA.size(); i++) {
-			alunos.add(i,listA.get(i));
+	/** Método responsável pela adição de novos elementos a turma **/
+	public boolean addAluno(Aluno a){
+		if(p<alunos.size()){
+			alunos.add(p,a);
+			p++;
+			return true;
 		}
+		return false;
 	}
+		
 		
 }
