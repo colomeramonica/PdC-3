@@ -22,6 +22,7 @@ public class CadastroTurma extends JDialog{
     private JTextField txtProfessor;
     private JList<Aluno> listaAdicionados;
     private JList<Aluno> listaAlunos;
+<<<<<<< HEAD
     private Aluno selected;
     private Turma turmaAux;
     private Professor professor;
@@ -32,11 +33,25 @@ public class CadastroTurma extends JDialog{
     public CadastroTurma(Frame owner) {
 		super(owner,true);
 		jFrame = new JFrame("Cadastro de turmas");
+=======
+    private List<Aluno> selected;
+    private Turma turmaAux;
+    private Professor professor;
+    private ArrayList <Aluno> alunos;
+
+    public CadastroTurma(Frame owner) {
+		super(owner,true);
+		jFrame = new JFrame("Gerenciar turmas");
+>>>>>>> 4168886e479b037bc5a02328c8221ef5a738e2de
 		jFrame.setLayout(new GridLayout(5,5));
 	
 		/*
 		* Um JPainel para adicionar os componentes JLabel e JTextField 
+<<<<<<< HEAD
 		* que contém as labels das datas 
+=======
+		* que contém respectivamente o rótulo "Nome:" e o campo para edição. 
+>>>>>>> 4168886e479b037bc5a02328c8221ef5a738e2de
 		*/
 		 
 		panelInicio = new JPanel();
@@ -51,7 +66,11 @@ public class CadastroTurma extends JDialog{
 
 		/*
 		* Outro JPainel para adicionar os componentes JLabel e JTextField 
+<<<<<<< HEAD
 		* contendo  botão de adição do professor
+=======
+		* que contém respectivamente o rótulo "Sobrenome:" e o campo para edição. 
+>>>>>>> 4168886e479b037bc5a02328c8221ef5a738e2de
 		*/
 		panelFim = new JPanel();
 		panelFim.setLayout(new GridLayout(1, 0));
@@ -144,6 +163,7 @@ public class CadastroTurma extends JDialog{
 		
 		/** Recebe os alunos selecionados e os adiciona na turma recém criada **/
 		btOk.addActionListener((e)->{
+<<<<<<< HEAD
 		//Jogar os alunos selecionados e adicioná-los na classe recém instanciada
 			var = Collections.list(lt.elements());
 			Turma turmaAux = new Turma(var, professor);
@@ -180,6 +200,53 @@ public class CadastroTurma extends JDialog{
 		
 		btCancela.addActionListener((e)->{
 			jFrame.dispose();
+=======
+		//@TODO jogar os alunos selecionados (que teoricamente estarão nessa nova lista) e adicioná-los na classe recém instanciada
+			Turma turmaAux = new Turma();
+			for(int i = 0; i < listaAdicionados.getModel().getSize(); i++) {
+				turmaAux.addAluno(listaAdicionados.getModel().getElementAt(i));
+			}
+			turmaAux.setProfessor(professor);
+			dispose();
+		}); 
+				
+		btEsq.addActionListener((e)->{
+			selected = listaAlunos.getSelectedValuesList();
+			try {
+				if (!lt.isEmpty()) {
+					for (int i = 0; i <= selected.size(); i++) {
+						lt.add(lt.size() - 1, selected.get(i));
+						lm.removeElementAt(i);
+					}
+			} else {
+				for (int i = 0; i <= selected.size(); i++) {
+						lt.add(i, selected.get(i));
+						lm.removeElementAt(i);
+					}
+				}
+			} catch (Exception ex) {
+				System.out.printf("");
+			}
+		});
+		
+		btDir.addActionListener((e)->{
+			selected = listaAdicionados.getSelectedValuesList();
+			try {
+				if (!lm.isEmpty()) {
+					for (int i = 0; i <= selected.size(); i++) {
+						lm.add(lt.size() - 1, selected.get(i));
+						lt.removeElementAt(i);
+					}
+			} else {
+				for (int i = 0; i <= selected.size(); i++) {
+						lm.add(i, selected.get(i));
+						lt.removeElementAt(i);
+					}
+				}
+			} catch (Exception ex) {
+				System.out.printf("");
+			}
+>>>>>>> 4168886e479b037bc5a02328c8221ef5a738e2de
 		});
 		
 		jFrame.setSize(500,300);
