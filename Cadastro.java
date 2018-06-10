@@ -11,7 +11,7 @@ public class Cadastro extends JFrame {
 		public Cadastro() {
 			super("Cadastro de Turmas"); // MENU INICIAL
 			
-			GridLayout g = new GridLayout(4,2);
+			GridLayout g = new GridLayout(5,2);
 			setLayout(g);
 			
 			Dimension d = new Dimension(500,350);
@@ -38,7 +38,8 @@ public class Cadastro extends JFrame {
 			
 			JButton btGerenciarAluno = new JButton ("Gerenciar alunos");
 			JButton btGerenciarProfessor = new JButton ("Gerenciar professores");
-			add(btGerenciarAluno); add(btGerenciarProfessor);
+			JButton btGerenciarTurmas = new JButton ("Gerenciar turmas");
+			add(btGerenciarAluno); add(btGerenciarProfessor); add(btGerenciarTurmas);
 			
 			btNProfessor.addActionListener((e)->{ // botão de cadastrar novo professor aciona o 'pop-up' de cadastro
 				CadastroProfessor n = new CadastroProfessor(this);
@@ -63,6 +64,10 @@ public class Cadastro extends JFrame {
 			
 			btGerenciarAluno.addActionListener((e)->{ // botão que irá listar os alunos cadastrados
 				JanelaAluno aln = new JanelaAluno(this);
+			});
+			
+			btGerenciarTurmas.addActionListener((e)->{ // botão que irá listar as turmas cadastradas
+				JanelaTurma t = new JanelaTurma(this);
 			});
 			
 			setSize(d);

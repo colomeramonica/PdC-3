@@ -15,7 +15,7 @@ public class JanelaProfessor extends JDialog {
 		btOK = new JButton("OK");
 		btEditar = new JButton("Editar");
 
-		professores = Dados.getInstance().getListProfessor();
+		professores = Dados.getInstance().getListProfessor(); // instancia a lista de Professores
 		
 		DefaultListModel<Professor> lm = new DefaultListModel<>();
 		jlProfessores = new JList<>(lm);
@@ -23,7 +23,7 @@ public class JanelaProfessor extends JDialog {
 		
 		add(jlProfessores);
 		for(int i=0;i<professores.size();i++){
-			lm.add(i,professores.get(i));
+			lm.add(i,professores.get(i)); // printa os elementos
 		}
 
 		add(btOK, BorderLayout.WEST);

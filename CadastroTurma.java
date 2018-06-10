@@ -22,19 +22,21 @@ public class CadastroTurma extends JDialog{
     private JTextField txtProfessor;
     private JList<Aluno> listaAdicionados;
     private JList<Aluno> listaAlunos;
-    private List<Aluno> selected;
+    private Aluno selected;
     private Turma turmaAux;
     private Professor professor;
-    private ArrayList <Aluno> alunos;
+    private ArrayList <Aluno> alunos, var;
+    private ArrayList <Turma> turma;
+    private int i;
 
     public CadastroTurma(Frame owner) {
 		super(owner,true);
-		jFrame = new JFrame("Gerenciar turmas");
+		jFrame = new JFrame("Cadastro de turmas");
 		jFrame.setLayout(new GridLayout(5,5));
 	
 		/*
 		* Um JPainel para adicionar os componentes JLabel e JTextField 
-		* que contém respectivamente o rótulo "Nome:" e o campo para edição. 
+		* que contém as labels das datas 
 		*/
 		 
 		panelInicio = new JPanel();
@@ -49,7 +51,7 @@ public class CadastroTurma extends JDialog{
 
 		/*
 		* Outro JPainel para adicionar os componentes JLabel e JTextField 
-		* que contém respectivamente o rótulo "Sobrenome:" e o campo para edição. 
+		* contendo  botão de adição do professor
 		*/
 		panelFim = new JPanel();
 		panelFim.setLayout(new GridLayout(1, 0));
@@ -142,51 +144,42 @@ public class CadastroTurma extends JDialog{
 		
 		/** Recebe os alunos selecionados e os adiciona na turma recém criada **/
 		btOk.addActionListener((e)->{
-		//@TODO jogar os alunos selecionados (que teoricamente estarão nessa nova lista) e adicioná-los na classe recém instanciada
-			Turma turmaAux = new Turma();
-			for(int i = 0; i < listaAdicionados.getModel().getSize(); i++) {
-				turmaAux.addAluno(listaAdicionados.getModel().getElementAt(i));
-			}
-			turmaAux.setProfessor(professor);
-			dispose();
+		//Jogar os alunos selecionados e adicioná-los na classe recém instanciada
+			var = Collections.list(lt.elements());
+			Turma turmaAux = new Turma(var, professor);
+			turma = Dados.getInstance().getListTurmas();
+			turma.add(turmaAux);
+			jFrame.dispose();
 		}); 
 				
 		btEsq.addActionListener((e)->{
-			selected = listaAlunos.getSelectedValuesList();
-			try {
-				if (!lt.isEmpty()) {
-					for (int i = 0; i <= selected.size(); i++) {
-						lt.add(lt.size() - 1, selected.get(i));
-						lm.removeElementAt(i);
-					}
-			} else {
-				for (int i = 0; i <= selected.size(); i++) {
-						lt.add(i, selected.get(i));
-						lm.removeElementAt(i);
-					}
-				}
-			} catch (Exception ex) {
-				System.out.printf("");
-			}
+			selected = listaAlunos.getSelectedValue(); // seleciona o aluno
+			if (!lt.isEmpty()) {
+				i = lm.indexOf(selected); // retorna o index do aluno selecionado
+					lt.add(lt.size() -1, selected); // adiciona na lista à direita
+					lm.remove(i);
+				} else {
+					i = lm.indexOf(selected);
+					lt.add(lt.size(), selected);
+					lm.remove(i);
+				}	
 		});
 		
 		btDir.addActionListener((e)->{
-			selected = listaAdicionados.getSelectedValuesList();
-			try {
-				if (!lm.isEmpty()) {
-					for (int i = 0; i <= selected.size(); i++) {
-						lm.add(lt.size() - 1, selected.get(i));
-						lt.removeElementAt(i);
-					}
-			} else {
-				for (int i = 0; i <= selected.size(); i++) {
-						lm.add(i, selected.get(i));
-						lt.removeElementAt(i);
-					}
-				}
-			} catch (Exception ex) {
-				System.out.printf("");
-			}
+			selected = listaAlunos.getSelectedValue();
+			if (!lm.isEmpty()) {
+				i = lt.indexOf(selected);
+					lm.add(lt.size() -1, selected);
+					lt.remove(i);
+				} else {
+					i = lt.indexOf(selected);
+					lm.add(lt.size(), selected);
+					lt.remove(i);
+				}	
+		});
+		
+		btCancela.addActionListener((e)->{
+			jFrame.dispose();
 		});
 		
 		jFrame.setSize(500,300);
