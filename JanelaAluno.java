@@ -19,7 +19,7 @@ public class JanelaAluno extends JDialog {
 		btOK = new JButton("OK");
 		btEditar = new JButton("Editar");
 
-		alunos = Dados.getInstance().getListAlunos();
+		alunos = Dados.getInstance().getListAlunos(); // instancia a lista de Alunos
 		
 		DefaultListModel<Aluno> lm = new DefaultListModel<>();
 		jlAlunos = new JList<>(lm);
@@ -27,7 +27,11 @@ public class JanelaAluno extends JDialog {
 		add(jlAlunos);
 		
 		for(int i=0;i<alunos.size();i++){
+<<<<<<< HEAD
 			lm.add(i,alunos.get(i));
+=======
+			lm.add(i,alunos.get(i)); // printa os elementos da lista de Alunos
+>>>>>>> monica
 		}	
 		
 		add(btOK, BorderLayout.WEST);
