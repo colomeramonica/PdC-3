@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 /* Tela de cadastro de novos professores */
 
 import javax.swing.*;
@@ -57,7 +61,7 @@ public class CadastroProfessor extends JDialog{
 			p.setEspecialidade(txtEspecialidade.getText());
 			
 			lstProf = Dados.getInstance().getListProfessor();
-			lstProf.add(p);
+			lstProf.add(p); // adiciona o professor criado na lista de Professores
 			dispose();
 		});
 		

@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 /* Arquivo Singleton que instancia as lista dos elementos utilizados várias vezes durante o programa */
 
 import javax.swing.*;

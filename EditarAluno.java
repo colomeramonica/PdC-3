@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 /* Tela que permite a edição dos alunos já cadastrados */
 
 import javax.swing.*;

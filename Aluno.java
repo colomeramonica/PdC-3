@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 public class Aluno extends Pessoa
 {
 	private String ra, dataMatricula;

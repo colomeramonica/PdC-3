@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+
 /* Tela de listagem dos alunos cadastrados */
 
 import javax.swing.*;
@@ -27,11 +31,7 @@ public class JanelaAluno extends JDialog {
 		add(jlAlunos);
 		
 		for(int i=0;i<alunos.size();i++){
-<<<<<<< HEAD
-			lm.add(i,alunos.get(i));
-=======
 			lm.add(i,alunos.get(i)); // printa os elementos da lista de Alunos
->>>>>>> monica
 		}	
 		
 		add(btOK, BorderLayout.WEST);
@@ -39,7 +39,7 @@ public class JanelaAluno extends JDialog {
 		
 		btEditar.addActionListener((e)->{
 			E = jlAlunos.getSelectedValue();
-			EditarAluno aluno = new EditarAluno(E);
+			EditarAluno aluno = new EditarAluno(E); // chama a janela de edição
 			dispose();	
 		});
 		

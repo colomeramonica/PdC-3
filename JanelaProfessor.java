@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -31,7 +35,7 @@ public class JanelaProfessor extends JDialog {
 		
 		btEditar.addActionListener((e)->{
 			E = jlProfessores.getSelectedValue();
-			EditarProfessor professor = new EditarProfessor(E);
+			EditarProfessor professor = new EditarProfessor(E); // chama a janela de edição
 			dispose();
 			
 		});

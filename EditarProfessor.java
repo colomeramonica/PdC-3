@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -7,7 +11,7 @@ public class EditarProfessor extends JFrame{
 	private int index;
 	
 	public EditarProfessor(Professor edicao) {
-		
+		// Refaz a tela de cadastro de professor, porém dessa vez os campos são atualizados
 		setLayout(new GridLayout(5,2));
 		
 		JLabel lblNomeProf = new JLabel("*Nome: ");
@@ -38,9 +42,9 @@ public class EditarProfessor extends JFrame{
 			lstProf = Dados.getInstance().getListProfessor();
 			index = lstProf.indexOf(edicao);
 			p.setNome(txtNomeProf.getText());
-			p.setEspecialidade(txtEspecialidade.getText());
+			p.setEspecialidade(txtEspecialidade.getText()); // recebe o texto alterado dos campos
 			if (index > -1) {
-				lstProf.set(index, p);
+				lstProf.set(index, p); // atualiza os valores na posição correta da lista
 			}
 			dispose();
 		});

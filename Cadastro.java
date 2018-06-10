@@ -1,3 +1,7 @@
+/** Leonardo Bortolotti 568929
+ * Mônica Colomera 570265 
+ **/
+ 
 /* Arquivo responsável pela janela inicial do programa. Contém os botões de adição de alunos, professores e o gerenciamento dos mesmos,
  * bem como a possibilidade de criação de turmas. */
  
@@ -41,6 +45,9 @@ public class Cadastro extends JFrame {
 			JButton btGerenciarTurmas = new JButton ("Gerenciar turmas");
 			add(btGerenciarAluno); add(btGerenciarProfessor); add(btGerenciarTurmas);
 			
+			JButton btFechar = new JButton("Fechar");
+			add(btFechar);
+			
 			btNProfessor.addActionListener((e)->{ // botão de cadastrar novo professor aciona o 'pop-up' de cadastro
 				CadastroProfessor n = new CadastroProfessor(this);
 				JLabel lbProfessor = new JLabel("Professores");
@@ -64,13 +71,14 @@ public class Cadastro extends JFrame {
 			
 			btGerenciarAluno.addActionListener((e)->{ // botão que irá listar os alunos cadastrados
 				JanelaAluno aln = new JanelaAluno(this);
-<<<<<<< HEAD
-=======
 			});
 			
 			btGerenciarTurmas.addActionListener((e)->{ // botão que irá listar as turmas cadastradas
 				JanelaTurma t = new JanelaTurma(this);
->>>>>>> monica
+			});
+			
+			btFechar.addActionListener((e)->{
+				dispose();
 			});
 			
 			setSize(d);
